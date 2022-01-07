@@ -5,6 +5,7 @@ import routes from 'scripts/store/routes';
 import useStore from 'diox/connectors/react';
 import Loader from 'scripts/components/Loader';
 import PropTypes, { InferProps } from 'prop-types';
+import Layout from 'scripts/containers/Layout';
 
 type LazyComponent = () => Promise<{
   default: React.ComponentType<{
@@ -28,7 +29,12 @@ export default function Router(props: InferProps<typeof propTypes>): JSX.Element
   let currentPage = null;
   if (routes[route] !== undefined) {
     const Component = React.lazy(routes[route] as LazyComponent);
-    currentPage = <Component translate={i18n(locale as Record<string, string>)} />;
+    const translate = i18n(locale as Record<string, string>);
+    currentPage = (
+      <Layout translate={translate}>
+        <Component translate={translate} />
+      </Layout>
+    );
   }
 
   return (

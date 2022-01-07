@@ -1,0 +1,12 @@
+#root {
+  /* Global layout */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: none;
+  }
+  .page {
+    flex: 1 1 auto;
+  }
+}

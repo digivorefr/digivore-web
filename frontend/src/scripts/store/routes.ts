@@ -6,4 +6,5 @@ interface Routes {
 
 export default {
   '/': () => import('scripts/pages/Home'),
+  '/design': () => import('scripts/pages/Design'),
 } as Routes;

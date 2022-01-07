@@ -1,101 +1,73 @@
-$breakpoints: (
-  xxs: 0px,
-  s: 575px,
-  m: 767px,
-  l: 991px,
-  xl: 1199px,
-);
+@use 'sass:color';
 
-@mixin resp($bps) {
-  $max: 0px;
-  @if length($bps) > 2 {
-    @error "Maximum 2 breakpoints values are allowed to build a media query.";
+@import 'driblet';
+@import 'variables';
+
+@include init();
+
+@import './placeholders';
+
+body {
+  /* Css variables */
+  // Colors
+  @each $name, $color in $colors {
+    --clr-#{""+$name}: #{$color};
+    // Print into a variable only rgb values, to allow insertion into css rgba() values
+    // ex : color: rgba(var(--clr-background-rgb), 0.5);
+    --clr-#{""+$name}-rgb: #{color.red($color)}, #{color.green($color)}, #{color.blue($color)};
   }
-  @each $breakpoint in $bps {
-    // If an absolute value is used, check if that value is registered or not in breakpoints map.
-    // This is just an indication.
-    @if map-has-key($breakpoints, $breakpoint) == false {
-      @if index(map-values($breakpoints), $breakpoint) == null {
-        @debug 'Breakpoint absolute value used ( #{$breakpoint} ). Register it if widely used.';
-      } @else {
-        @debug 'Duplicate breakpoint : absolute value "#{$breakpoint}" is also available with mapped breakpoints.';
-      }
-    }
-    // Type validation and find highest value
-    @if (type-of($breakpoint) != 'number') and (type-of($breakpoint) != 'string') {
-      @error "Type error : #{$breakpoint}";
-    }
-    // Retrieve the real value in px
-    $value: if(type-of($breakpoint) == 'string', map-get($breakpoints, $breakpoint), $breakpoint);
-    @if ($value > $max) {
-      $max: $value;
-    }
+  // Shapes
+  @each $name, $shape in $shapes {
+    --shape-#{$name}: #{$shape};
   }
-  // Build the media query string from $bps
-  $str: '';
-  @each $breakpoint in $bps {
-    // Retrieve the real value in px
-    $value: if(type-of($breakpoint) == 'string', map-get($breakpoints, $breakpoint), $breakpoint);
-    // Build a max-width if needed
-    @if $max == $value and (length($bps) > 1) {
-      $str: '#{$str} and (max-width:#{$value})';
-    } @else if $value == 0px and length($bps) == 1 {
-      // For '0px' breakpoint, we don't need to write a media query. The @content code is rendered.
-      @content;
-    } @else {
-      // Otherwise, build a min-width media query
-      @if type-of($breakpoint) == 'string' {
-        $value: $value + 1;
-      }
-      $str: '#{$str} and (min-width:#{$value})';
-    }
+  // Gaps
+  @each $name, $gap in $gaps {
+    --gap-#{$name}: #{$gap};
   }
-  @if $str != '' {
-    @media screen#{$str} {
-      @content;
-    }
+  // Fonts
+  @each $name, $ff in $font-families {
+    --ff-#{$name}: #{$ff};
+  }
+
+  /* Custom css variables */
+  --transition: all 125ms ease-in-out;
+  --transition-on: 75ms;
+
+  /* Common design. */
+  font-family: var(--ff-main);
+  font-size: 18px;
+  line-height: 1.1;
+  color: var(--clr-text);
+
+  margin: 0;
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+
+  background: var(--clr-background);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+* {
+  @include specify(-width50, true) {
+    width: 50%;
+  }
+  @include specify(-width100, true) {
+    width: 100%;
+  }
+  @include specify(-txt-center, true) {
+    text-align: center;
+  }
+  @include specify(-txt-left, true) {
+    text-align: left;
+  }
+  @include specify(-txt-right, true) {
+    text-align: right;
   }
 }
 
-@import "./comps/button";
-@import "./comps/link";
+@import './resets';
+@import './components';
+@import './pages';
 
-$color: grey;
-
-@keyframes show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-p {
-  color: $color;
-  animation: show 1s both;
-}
-
-img {
-  display: block;
-  width: 50px;
-  height: 50px;
-}
-
-@media screen and (min-width:768px) {
-  p {
-    background: #AAAAAA;
-  }
-}
-
-@media screen and (min-width:768px) {
-  body {
-    background: #EEEEEE;
-  }
-}
-
-@media screen and (min-width:1020px) {
-  p {
-    background: #EEEEEE;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600;700;900&display=swap');
