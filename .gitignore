@@ -250,7 +250,7 @@ report.html
 
 # Builds
 dist
-**/public/assets
+# **/public/assets
 
 # Misc
 rsync.sh
