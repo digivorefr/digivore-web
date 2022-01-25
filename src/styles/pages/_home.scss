@@ -1,6 +1,12 @@
 .skills {
-  max-width: 50%;
-  margin: 0 0 0 auto;
+  position: relative;
+  @include resp(m) {
+    position: sticky;
+    top: calc(var(--navbar-height-desktop) + 1.5rem);
+    max-width: 50%;
+    margin: 0 0 0 auto;
+  }
+
   > ul {
     list-style: none;
     > li {
@@ -55,5 +61,15 @@
       // list-style: disc inside;
       // padding: 0 0 0 1.5rem;
     }
+  }
+}
+
+.world {
+  background: var(--clr-text);
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 }

@@ -12,3 +12,51 @@ a {
     transition-duration: var(--transition-on);
   }
 }
+
+.link {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
+  flex: 1 1 auto;
+
+  @include resp(m) {
+    justify-content: flex-start;
+    flex: none;
+  }
+
+  @include specify(icon) {
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0.5rem 1.5rem;
+    border-radius: 36px;
+    background-color: var(--clr-text);
+    color: var(--clr-background);
+
+    &:hover {
+      background-color: var(--clr-secondary);
+    }
+  }
+}
+
+.icon {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: var(--clr-background);
+
+  @include specify(linkedin) {
+    margin-bottom: 2px;
+    height: 14px;
+    mask: url(images/icons/linkedin.svg) no-repeat center / contain;
+  }
+  @include specify(download) {
+    mask: url(images/icons/download.svg) no-repeat center / contain;
+  }
+  @include specify(github) {
+    mask: url(images/icons/github.svg) no-repeat center / contain;
+  }
+}

@@ -2,7 +2,7 @@
   <div data-layout="--grid">
     <div
       class="wrap wrap--max-height--with-background"
-      data-layout="--flex--justify-center--items-center"
+      data-layout="--flex--justify-center--items-end"
     >
       <div class="image">
         <img
@@ -20,7 +20,7 @@
         data-gap="--6"
       >
         <div
-          class="---txt-center"
+          class="---m-txt-center"
           data-layout="--grid"
           data-gap="--2"
         >
@@ -28,8 +28,8 @@
           <p>Team spirit - Autonomous - Demanding - Curious</p>
         </div>
         <div
-          data-layout="--grid"
-          data-cols="--2"
+          data-layout="--grid--items-start"
+          data-cols="--m2"
           data-gap="--6"
         >
           <div
@@ -37,7 +37,7 @@
             data-layout="--flex--justify-center"
           >
             <ul
-              data-layout="--grid"
+              data-layout="--grid--justify-stretch--mjustify-start"
               data-gap="--5"
             >
               <li
@@ -134,6 +134,34 @@
                 data-gap="--3"
               >
                 <div class="resume__item__header">
+                  2020 > 2021
+                  <span class="dot" />
+                  Inbenta
+                  <span class="dot" />
+                  Toulouse
+                </div>
+                <h3 class="resume__item__title">
+                  Fullstack developer
+                </h3>
+                <p class="resume__item__sumup">
+                  Selfcare products development (chatbots, faq...) for top 100 french companies
+                </p>
+                <ul
+                  class="resume__item__tasks"
+                  data-layout="--grid"
+                  data-gap="--2"
+                >
+                  <li>Features development (js, vue, php, scss)</li>
+                  <li>Follow-up meetings</li>
+                  <li>Interim mission as CTO between october 2020 and january 2021</li>
+                </ul>
+              </li>
+              <li
+                class="resume__item"
+                data-layout="--grid"
+                data-gap="--3"
+              >
+                <div class="resume__item__header">
                   2017 > 2020
                   <span class="dot" />
                   Horizon
@@ -159,10 +187,161 @@
                   <li>Customers management (teaching, products evolutions, litigations)</li>
                 </ul>
               </li>
+              <li
+                class="resume__item"
+                data-layout="--grid"
+                data-gap="--3"
+              >
+                <div class="resume__item__header">
+                  2015 > 2017
+                  <span class="dot" />
+                  Jalis
+                  <span class="dot" />
+                  Toulouse
+                </div>
+                <h3 class="resume__item__title">
+                  Web project manager, UX designer, frontend developer
+                </h3>
+                <p class="resume__item__sumup">
+                  Meeting clients, I had to draw up specifications and carry out projects
+                </p>
+                <ul
+                  class="resume__item__tasks"
+                  data-layout="--grid"
+                  data-gap="--2"
+                >
+                  <li>
+                    Facilitating meetings for website specifications,
+                    delivery and backoffice trainings
+                  </li>
+                  <li>
+                    Project UX design, then frontend developments (html, scss, twig, jquery, git)
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="resume__item"
+                data-layout="--grid"
+                data-gap="--3"
+              >
+                <div class="resume__item__header">
+                  2012 > 2015
+                  <span class="dot" />
+                  Jalis
+                  <span class="dot" />
+                  Marseille
+                </div>
+                <h3 class="resume__item__title">
+                  UX design team manager
+                </h3>
+                <p class="resume__item__sumup">
+                  In charge of the design production workflow,
+                  team training and framework evolutions
+                </p>
+                <ul
+                  class="resume__item__tasks"
+                  data-layout="--grid"
+                  data-gap="--2"
+                >
+                  <li>
+                    Frontend modules developments with jQuery
+                  </li>
+                  <li>
+                    HTML/SCSS framework development, included into the company's CMS
+                  </li>
+                  <li>
+                    Continuous upskill training for my team members (8), and close coaching
+                  </li>
+                  <li>
+                    Collaborating with the backend team for developing a whole new from scratch CMS
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="resume__item"
+                data-layout="--grid"
+                data-gap="--3"
+              >
+                <div class="resume__item__header">
+                  2010 > 2012
+                  <span class="dot" />
+                  Jalis
+                  <span class="dot" />
+                  Marseille
+                </div>
+                <h3 class="resume__item__title">
+                  UX designer, frontend developer
+                </h3>
+                <p class="resume__item__sumup">
+                  B2c websites UX design and frontend development
+                </p>
+              </li>
+              <li
+                class="resume__item"
+                data-layout="--grid"
+                data-gap="--3"
+              >
+                <div class="resume__item__header">
+                  2008 > 2010
+                  <span class="dot" />
+                  Freelance
+                  <span class="dot" />
+                  Marseille
+                </div>
+                <h3 class="resume__item__title">
+                  Actionscript 3 developer (Flash)
+                </h3>
+                <p class="resume__item__sumup">
+                  SEO friendly dynamic flash websites development
+                </p>
+              </li>
             </ul>
           </div>
         </div>
+        <div
+          class="---m-txt-center"
+          data-layout="grid"
+          data-gap="--4"
+        >
+          <h4>get in touch</h4>
+          <div
+            data-layout="--flex--mjustify-center"
+            data-flex="--wrap"
+            data-gap="--2--m4"
+          >
+            <a
+              href="https://www.linkedin.com/in/pierre-bonnin-42989688/"
+              target="_blank"
+              class="link link--icon"
+            >
+              <span class="icon icon--linkedin" />
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/digivorefr"
+              target="_blank"
+              class="link link--icon"
+            >
+              <span class="icon icon--github" />
+              Github
+            </a>
+            <a
+              :href="resume"
+              target="_blank"
+              class="link link--icon"
+            >
+              <span class="icon icon--download" />
+              Resume (.pdf)
+            </a>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="wrap wrap--padded world">
+      <img
+        :src="world"
+        alt="Places i've been"
+      >
     </div>
   </div>
 </template>
@@ -170,12 +349,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import background from 'images/home.jpg';
+import world from 'images/world.png';
+import resume from 'documents/cv-pierre-bonnin-en.pdf';
 
 export default Vue.extend({
   name: 'Home',
   data() {
     return {
       background,
+      world,
+      resume,
     };
   },
 });

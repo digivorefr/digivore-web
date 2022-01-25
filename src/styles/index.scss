@@ -32,10 +32,11 @@ body {
   /* Custom css variables */
   --transition: all 125ms ease-in-out;
   --transition-on: 75ms;
+  --navbar-height-desktop: 76px;
 
   /* Common design. */
   font-family: var(--ff-main);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.1;
   color: var(--clr-text);
 

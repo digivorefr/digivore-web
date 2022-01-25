@@ -1,19 +1,22 @@
 <template>
   <div class="layout">
     <navbar />
-    <div class="page">
+    <main class="page">
       <router-view />
-    </div>
+    </main>
+    <bottom />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import Navbar from 'scripts/components/Navbar.vue';
+import navbar from 'scripts/components/Navbar.vue';
+import bottom from 'scripts/components/Bottom.vue';
 
 export default Vue.extend({
   components: {
-    navbar: Navbar,
+    navbar,
+    bottom,
   },
 });
 </script>
