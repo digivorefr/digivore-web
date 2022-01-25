@@ -312,7 +312,7 @@
             <a
               href="https://www.linkedin.com/in/pierre-bonnin-42989688/"
               target="_blank"
-              class="link link--icon"
+              class="link link--button"
             >
               <span class="icon icon--linkedin" />
               LinkedIn
@@ -320,7 +320,7 @@
             <a
               href="https://github.com/digivorefr"
               target="_blank"
-              class="link link--icon"
+              class="link link--button"
             >
               <span class="icon icon--github" />
               Github
@@ -328,7 +328,7 @@
             <a
               :href="resume"
               target="_blank"
-              class="link link--icon"
+              class="link link--button"
             >
               <span class="icon icon--download" />
               Resume (.pdf)

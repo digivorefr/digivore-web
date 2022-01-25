@@ -17,9 +17,11 @@ const config = (mode === 'development')
 const server = express();
 const compiler = webpack(config);
 
+const { log, error } = console;
+
 fs.remove(config.output.path)
   .then(() => {
-    console.log('MODE', mode);
+    log('MODE', mode);
 
     // Enable HMR
     if (mode === 'development') {
@@ -27,7 +29,7 @@ fs.remove(config.output.path)
         publicPath: '/assets/',
       });
       devMiddleware.waitUntilValid(() => {
-        console.log(`\n\x1B[0m\x1B[32m\x1B[1m ✔️ Check your browser : http://localhost:${port} \x1B[0m\n`);
+        log(`\n\x1B[0m\x1B[32m\x1B[1m ✔️ Check your browser : http://localhost:${port} \x1B[0m\n`);
       });
       server.use(devMiddleware);
 
@@ -42,9 +44,9 @@ fs.remove(config.output.path)
       compiler.run((err, stats) => { // [Stats Object](#stats-object)
       // ...
         if (stats.hasErrors()) {
-          console.error(stats.toString(), '\nCompilation failed.');
+          error(stats.toString(), '\nCompilation failed.');
         }
-        console.log(stats.toString(), '\nSuccesfully compiled.');
+        log(stats.toString(), '\nSuccesfully compiled.');
 
         // eslint-disable-next-line @typescript-eslint/no-empty-function
         compiler.close(() => {
@@ -56,11 +58,11 @@ fs.remove(config.output.path)
     server.use(express.static(path.resolve(config.output.path, '..')));
 
     // Catch-all to redirect any request to the main entry point (index.html).
-    server.get('/', (_request, response, next) => {
+    server.get('*', (_request, response, next) => {
       const filePath = path.resolve('./dist/', 'index.html');
-      compiler.outputFileSystem.readFile(filePath, (error, content) => {
-        if (error !== null) {
-          next(error);
+      compiler.outputFileSystem.readFile(filePath, (err, content) => {
+        if (err !== null) {
+          next(err);
         } else {
           response.set('content-type', 'text/html');
           response.send(content);
@@ -70,10 +72,10 @@ fs.remove(config.output.path)
     });
 
     server.listen(port, () => {
-      console.log(`Server is up, waiting for compilation. Port: ${port}`);
+      log(`Server is up, waiting for compilation. Port: ${port}`);
     });
   })
-  .catch((error) => {
-    console.error('Compilation failed :');
-    console.error(error.message);
+  .catch((err) => {
+    error('Compilation failed :');
+    error(err.message);
   });

@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-@import 'driblet';
+@import 'lib/asterix';
 @import 'variables';
 
 @include init();
@@ -17,9 +17,9 @@ body {
     --clr-#{""+$name}-rgb: #{color.red($color)}, #{color.green($color)}, #{color.blue($color)};
   }
   // Shapes
-  @each $name, $shape in $shapes {
-    --shape-#{$name}: #{$shape};
-  }
+  // @each $name, $shape in $shapes {
+  //   --shape-#{$name}: #{$shape};
+  // }
   // Gaps
   @each $name, $gap in $gaps {
     --gap-#{$name}: #{$gap};
@@ -67,9 +67,33 @@ body {
   }
 }
 
-@import './resets';
+.layout {
+  /* Global layout */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: none;
+  }
+  .page {
+    flex: 1 1 auto;
+  }
+
+  header.header {
+    z-index: 30;
+  }
+
+  .page {
+    z-index: 10;
+  }
+
+  footer.footer {
+    z-index: 20;
+  }
+}
+
+@import './elements';
 @import './components';
 @import './pages';
 
-//@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;700;900&display=swap');

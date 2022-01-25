@@ -9,6 +9,9 @@
   @include specify(max-height) {
     min-height: calc(100vh - 220px);
   }
+  @include specify(screen-height) {
+    min-height: calc(100vh - var(--navbar-height-desktop));
+  }
   @include specify(with-background) {
     > .image {
       position: absolute;
@@ -25,7 +28,7 @@
     }
     color: var(--clr-background);
 
-    > h1 {
+    h1 {
       font-size: 4rem;
       @include resp(s) {
         font-size: 6rem;
