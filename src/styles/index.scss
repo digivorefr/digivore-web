@@ -1,0 +1,75 @@
+@use 'sass:color';
+
+@import 'driblet';
+@import 'variables';
+
+@include init();
+
+@import './placeholders';
+
+body {
+  /* Css variables */
+  // Colors
+  @each $name, $color in $colors {
+    --clr-#{""+$name}: #{$color};
+    // Print into a variable only rgb values, to allow insertion into css rgba() values
+    // ex : color: rgba(var(--clr-background-rgb), 0.5);
+    --clr-#{""+$name}-rgb: #{color.red($color)}, #{color.green($color)}, #{color.blue($color)};
+  }
+  // Shapes
+  @each $name, $shape in $shapes {
+    --shape-#{$name}: #{$shape};
+  }
+  // Gaps
+  @each $name, $gap in $gaps {
+    --gap-#{$name}: #{$gap};
+  }
+  // Fonts
+  @each $name, $ff in $font-families {
+    --ff-#{$name}: #{$ff};
+  }
+
+  /* Custom css variables */
+  --transition: all 125ms ease-in-out;
+  --transition-on: 75ms;
+  --navbar-height-desktop: 76px;
+
+  /* Common design. */
+  font-family: var(--ff-main);
+  font-size: 16px;
+  line-height: 1.1;
+  color: var(--clr-text);
+
+  margin: 0;
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+
+  background: var(--clr-background);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+* {
+  @include specify(-width50, true) {
+    width: 50%;
+  }
+  @include specify(-width100, true) {
+    width: 100%;
+  }
+  @include specify(-txt-center, true) {
+    text-align: center;
+  }
+  @include specify(-txt-left, true) {
+    text-align: left;
+  }
+  @include specify(-txt-right, true) {
+    text-align: right;
+  }
+}
+
+@import './resets';
+@import './components';
+@import './pages';
+
+//@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;700;900&display=swap');

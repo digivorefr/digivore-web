@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+  <title>Senior React & Vue.js Developer | Digivore</title>
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Senior React & VueJS Senior Developer | Digivore" />
+  <meta property="og:url" content="https://www.digivore.fr" />
+  <meta property="og:site_name" content="digivore.fr" />
+  <meta property="og:description" content="Digivore's website - React / VueJS Frontend senior developer" />
+  <meta name="description" content="Digivore's website - React / VueJS Frontend senior developer">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Digivore",
+      "url": "https://www.digivore.fr",
+      "sameAs": [
+        "https://www.linkedin.com/in/pierre-bonnin-42989688/",
+        "https://github.com/digivorefr"
+      ]
+    }
+  </script>
+
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="icon" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EV19PB1SME"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-EV19PB1SME');
+  </script>
+
+  <% for (var filePath in htmlWebpackPlugin.files.js) { %>
+    <script async src="<%= htmlWebpackPlugin.files.js[filePath] %>"></script>
+    <% } %>
+      <% for (var filePath in htmlWebpackPlugin.files.css) { %>
+        <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[filePath] %>" />
+        <% } %>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+</body>
+
+</html>

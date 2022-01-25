@@ -1,0 +1,24 @@
+.layout {
+  /* Global layout */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: none;
+  }
+  .page {
+    flex: 1 1 auto;
+  }
+
+  header.header {
+    z-index: 30;
+  }
+
+  .page {
+    z-index: 10;
+  }
+
+  footer.footer {
+    z-index: 20;
+  }
+}
