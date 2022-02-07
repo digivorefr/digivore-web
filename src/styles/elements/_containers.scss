@@ -1,18 +1,18 @@
 .wrap {
   position: relative;
-  @include specify(padded) {
+  @include --spe(padded) {
     padding: 1rem;
-    @include resp(m) {
+    @include --mq(m) {
       padding: 2rem;
     }
   }
-  @include specify(max-height) {
+  @include --spe(max-height) {
     min-height: calc(100vh - 220px);
   }
-  @include specify(screen-height) {
+  @include --spe(screen-height) {
     min-height: calc(100vh - var(--navbar-height-desktop));
   }
-  @include specify(with-background) {
+  @include --spe(with-background) {
     > .image {
       position: absolute;
       z-index: -1;
@@ -30,10 +30,10 @@
 
     h1 {
       font-size: 4rem;
-      @include resp(s) {
+      @include --mq(s) {
         font-size: 6rem;
       }
-      @include resp(l) {
+      @include --mq(l) {
         font-size: 12rem;
       }
       font-weight: 100;

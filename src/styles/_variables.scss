@@ -1,34 +1,28 @@
-$colors: (
-  background: #fefefe,
-  primary: #0f9e7f,
-  secondary: #d8055d,
-  text: #202020,
+@include --update-vars(
+  (
+    colors: (
+      background: #fefefe,
+      primary: #0f9e7f,
+      secondary: #d8055d,
+      text: #202020,
+    ),
+    breakpoints: (
+      xxs: 0px,
+      s: 575px,
+      m: 767px,
+      l: 991px,
+    ),
+    gaps: (
+      2: 0.5em,
+      3: 1em,
+      4: 1.5em,
+      5: 2em,
+      6: 4em,
+    ),
+    font-families: (
+      main: 'Be Vietnam Pro,  sans-serif',
+    ),
+  )
 );
 
-$breakpoints: (
-  xxs: 0px,
-  s: 575px,
-  m: 767px,
-  l: 991px,
-);
-
-$gaps: (
-  // 4px
-  // 1: 0.25em,
-  // 8px
-  2: 0.5em,
-  // 16px
-  3: 1em,
-  // 24px
-  4: 1.5em,
-  // 32px
-  5: 2em,
-  // 64px
-  6: 4em,
-  // 94px
-  // 7: 5.875em
-) !default;
-
-$font-families: (
-  main: 'Be Vietnam Pro,  sans-serif',
-);
+@debug $asterix-vars;

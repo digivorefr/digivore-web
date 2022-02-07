@@ -1,39 +1,29 @@
 @use 'sass:color';
 
-@import 'lib/asterix';
-@import 'variables';
+@import '@digivorefr/asterix-scss';
 
-@include init();
-
-@import './placeholders';
-
-body {
+:root {
+  @import 'variables';
+  @include asterix();
   /* Css variables */
-  // Colors
-  @each $name, $color in $colors {
-    --clr-#{""+$name}: #{$color};
-    // Print into a variable only rgb values, to allow insertion into css rgba() values
-    // ex : color: rgba(var(--clr-background-rgb), 0.5);
-    --clr-#{""+$name}-rgb: #{color.red($color)}, #{color.green($color)}, #{color.blue($color)};
-  }
-  // Shapes
-  // @each $name, $shape in $shapes {
-  //   --shape-#{$name}: #{$shape};
-  // }
-  // Gaps
-  @each $name, $gap in $gaps {
-    --gap-#{$name}: #{$gap};
-  }
-  // Fonts
-  @each $name, $ff in $font-families {
-    --ff-#{$name}: #{$ff};
-  }
+
+  @include --set-css-variables(
+    (
+      clr: --var(colors),
+      ff: --var(font-families),
+      gap: --var(gaps),
+    )
+  );
 
   /* Custom css variables */
   --transition: all 125ms ease-in-out;
   --transition-on: 75ms;
   --navbar-height-desktop: 76px;
+}
 
+@import './placeholders';
+
+body {
   /* Common design. */
   font-family: var(--ff-main);
   font-size: 16px;
@@ -50,19 +40,19 @@ body {
 }
 
 * {
-  @include specify(-width50, true) {
+  @include --spe(width50, $responsively: true) {
     width: 50%;
   }
-  @include specify(-width100, true) {
+  @include --spe(width100, $responsively: true) {
     width: 100%;
   }
-  @include specify(-txt-center, true) {
+  @include --spe(txt-center, $responsively: true) {
     text-align: center;
   }
-  @include specify(-txt-left, true) {
+  @include --spe(txt-left, $responsively: true) {
     text-align: left;
   }
-  @include specify(-txt-right, true) {
+  @include --spe(txt-right, $responsively: true) {
     text-align: right;
   }
 }

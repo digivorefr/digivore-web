@@ -50,6 +50,14 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@digivorefr/asterix-scss@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@digivorefr/asterix-scss/-/asterix-scss-1.0.0.tgz#cfc26b7c787e7d8ed53ab6fa8d291f08b13f3be1"
+  integrity sha512-DNb4mkNhIwYxFOBGcRhHdjlEDaPnpKC/Ywsb3z679nBgGm1lyc55M4BmAh9BmP4Zo/pi9wWteE5fiIS8v36mLg==
+  dependencies:
+    express "^4.17.2"
+    fs-extra "^10.0.0"
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
@@ -1719,7 +1727,7 @@ execa@^5.0.0:
     signal-exit "^3.0.3"
     strip-final-newline "^2.0.0"
 
-express@^4.17.1:
+express@^4.17.1, express@^4.17.2:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.2.tgz#c18369f265297319beed4e5558753cc8c1364cb3"
   integrity sha512-oxlxJxcQlYwqPWKVJJtvQiwHgosH/LrLSPA+H4UxpyvSS6jC5aH+5MoHFM+KABgTOt0APue4w66Ha8jCUo9QGg==

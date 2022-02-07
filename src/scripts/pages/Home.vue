@@ -1,7 +1,8 @@
 <template>
   <div data-layout="--grid">
     <div
-      class="wrap wrap--max-height--with-background"
+      class="wrap"
+      data-spe="--max-height--with-background"
       data-layout="--flex--justify-center--items-end"
     >
       <div class="image">
@@ -13,14 +14,17 @@
       </div>
       <h1>digivore</h1>
     </div>
-    <div class="wrap wrap--padded">
+    <div
+      class="wrap"
+      data-spe="--padded"
+    >
       <div
         class="container"
         data-layout="--grid"
         data-gap="--6"
       >
         <div
-          class="---m-txt-center"
+          data-spe="---mtxt-center"
           data-layout="--grid"
           data-gap="--2"
         >
@@ -299,7 +303,7 @@
           </div>
         </div>
         <div
-          class="---m-txt-center"
+          data-spe="--mtxt-center"
           data-layout="grid"
           data-gap="--4"
         >
@@ -312,32 +316,47 @@
             <a
               href="https://www.linkedin.com/in/pierre-bonnin-42989688/"
               target="_blank"
-              class="link link--button"
+              class="link"
+              data-spe="--button"
             >
-              <span class="icon icon--linkedin" />
+              <span
+                class="icon"
+                data-spe="--linkedin"
+              />
               LinkedIn
             </a>
             <a
               href="https://github.com/digivorefr"
               target="_blank"
-              class="link link--button"
+              class="link"
+              data-spe="--button"
             >
-              <span class="icon icon--github" />
+              <span
+                class="icon"
+                data-spe="--github"
+              />
               Github
             </a>
             <a
               :href="resume"
               target="_blank"
-              class="link link--button"
+              class="link"
+              data-spe="--button"
             >
-              <span class="icon icon--download" />
+              <span
+                class="icon"
+                data-spe="--download"
+              />
               Resume (.pdf)
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="wrap wrap--padded world">
+    <div
+      class="wrap world"
+      data-spe="--padded"
+    >
       <img
         :src="world"
         alt="Places i've been"

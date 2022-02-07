@@ -1,6 +1,6 @@
 .skills {
   position: relative;
-  @include resp(m) {
+  @include --mq(m) {
     position: sticky;
     top: calc(var(--navbar-height-desktop) + 1.5rem);
     max-width: 50%;
