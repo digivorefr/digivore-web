@@ -13,18 +13,17 @@
         data-gap="--3"
       >
         <div class="tile tile--primary">
-          Looking for new human and technical adventures.
+          Sass is my mummy,<br>React & Vue are both family.
         </div>
         <div class="tile tile--secondary">
-          Remote-friendly, @Toulouse, France.
+          Remote-friendly<br>@Toulouse, France.
         </div>
         <div
           class="tile"
           data-col="--2"
           data-spe="--txt-center"
         >
-          <h1>Frontend Senior Developer in Toulouse - France.</h1>
-          <p>Team player - Autonomous - Demanding - Curious</p>
+          I'm currently looking for new opportunities
         </div>
       </div>
     </div>
@@ -42,7 +41,7 @@
           data-layout="--grid"
           data-gap="--2"
         >
-          <h2>frontend senior developer</h2>
+          <h1>frontend senior developer</h1>
           <p>Team spirit - Autonomous - Demanding - Curious</p>
         </div>
         <div
