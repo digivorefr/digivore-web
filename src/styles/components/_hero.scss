@@ -1,0 +1,108 @@
+@use 'sass:math';
+
+.hero {
+  &__front {
+    text-shadow: 0px 2px 3px rgba(black, 0.5);
+
+    &__title,
+    &__subtitle {
+      @include --extends(
+        (
+          data-layout: --flex,
+        )
+      );
+      > span {
+        position: relative;
+        display: block;
+      }
+    }
+    &__title {
+      font-size: 2.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1em;
+      font-weight: 100;
+
+      > span {
+        animation: text-show 0.15s 1s var(--bounce) both;
+        @for $i from 1 through 15 {
+          &:nth-child(15n + #{$i}) {
+            animation-delay: 1s + (math.random(15) * 0.035s);
+          }
+        }
+      }
+    }
+    &__subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      font-weight: 300;
+
+      > span {
+        animation: text-show 0.15s 1.75s var(--bounce) both;
+        @for $i from 1 through 15 {
+          &:nth-child(15n + #{$i}) {
+            animation-delay: 1.75s + (math.random(15) * 0.035s);
+          }
+        }
+      }
+    }
+  }
+
+  &__back {
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: rgba(var(--clr-text-rgb), 0.925);
+      backdrop-filter: blur(20px);
+      top: 0;
+      width: 50%;
+      height: 100%;
+      transform: none;
+      animation: hero-show 4s 3s ease-in-out forwards;
+    }
+    &:before {
+      left: 0;
+      transform-origin: left top;
+    }
+
+    &:after {
+      right: 0;
+      transform-origin: right bottom;
+    }
+  }
+
+  & + * {
+    animation: next-show 1s 6s var(--bounce) forwards;
+  }
+}
+
+@keyframes hero-show {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.5) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.5) scaleX(0);
+  }
+}
+
+@keyframes text-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes next-show {
+  100% {
+    margin-top: -20vh;
+  }
+}

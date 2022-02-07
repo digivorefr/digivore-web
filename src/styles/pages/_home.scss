@@ -2,7 +2,7 @@
   position: relative;
   @include --mq(m) {
     position: sticky;
-    top: calc(var(--navbar-height-desktop) + 1.5rem);
+    top: 1.5rem;
     max-width: 50%;
     margin: 0 0 0 auto;
   }

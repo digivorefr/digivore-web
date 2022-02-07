@@ -19,6 +19,7 @@
   --transition: all 125ms ease-in-out;
   --transition-on: 75ms;
   --navbar-height-desktop: 76px;
+  --bounce: cubic-bezier(0.2, 0, 0.355, 1);
 }
 
 @import './placeholders';

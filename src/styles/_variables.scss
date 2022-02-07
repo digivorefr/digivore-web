@@ -2,15 +2,18 @@
   (
     colors: (
       background: #fefefe,
+      primary-1: #09725b,
       primary: #0f9e7f,
+      secondary-1: #990643,
       secondary: #d8055d,
-      text: #202020,
+      text: #141414,
+      dark: #101010,
+      dark1: #242424,
     ),
     breakpoints: (
-      xxs: 0px,
-      s: 575px,
-      m: 767px,
-      l: 991px,
+      s: 480px,
+      m: 768px,
+      l: 1024px,
     ),
     gaps: (
       2: 0.5em,

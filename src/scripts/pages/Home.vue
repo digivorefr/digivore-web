@@ -1,18 +1,32 @@
 <template>
   <div data-layout="--grid">
+    <Hero :background="background" />
     <div
       class="wrap"
-      data-spe="--max-height--with-background"
-      data-layout="--flex--justify-center--items-end"
+      data-spe="--padded"
     >
-      <div class="image">
-        <img
-          :src="background"
-          alt="Digivore background"
-          width="100%"
+      <div
+        class="container"
+        data-spe="--small"
+        data-layout="--grid"
+        data-cols="--2"
+        data-gap="--3"
+      >
+        <div class="tile tile--primary">
+          Looking for new human and technical adventures.
+        </div>
+        <div class="tile tile--secondary">
+          Remote-friendly, @Toulouse, France.
+        </div>
+        <div
+          class="tile"
+          data-col="--2"
+          data-spe="--txt-center"
         >
+          <h1>Frontend Senior Developer in Toulouse - France.</h1>
+          <p>Team player - Autonomous - Demanding - Curious</p>
+        </div>
       </div>
-      <h1>digivore</h1>
     </div>
     <div
       class="wrap"
@@ -370,9 +384,11 @@ import Vue from 'vue';
 import background from 'images/home.jpg';
 import world from 'images/world.png';
 import resume from 'documents/cv-pierre-bonnin-en.pdf';
+import Hero from 'scripts/components/Hero.vue';
 
 export default Vue.extend({
   name: 'Home',
+  components: { Hero },
   data() {
     return {
       background,
