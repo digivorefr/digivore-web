@@ -6,10 +6,9 @@
     >
       <div
         class="container"
-        data-layout="--flex--items-center--justify-end"
-        data-gap="2"
+        data-spe="--txt-center"
       >
-        Digivore {{ currentYear }} - All right reserved
+        Digivore {{ currentYear }} - All rights reserved
       </div>
     </div>
   </footer>

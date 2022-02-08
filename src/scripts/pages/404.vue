@@ -19,13 +19,14 @@
         <div
           class="container"
           data-layout="--grid--justify-center"
+          data-gap="--4"
+          data-spe="--txt-center"
         >
           <h1>not found</h1>
           <div data-layout="--flex--justify-center">
             <router-link
               :to="{name: 'Home'}"
-              class="link"
-              data-spe="--button"
+              data-bt
             >
               Go home
               <router-link />

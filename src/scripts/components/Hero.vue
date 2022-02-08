@@ -1,6 +1,6 @@
 <template>
   <div
-    class="wrap hero"
+    :class="`wrap hero${(!animate) ? ' hero--fast' : ''}`"
     data-spe="--screen-height--with-background"
     data-layout="--flex--justify-center--items-center"
   >
@@ -18,13 +18,22 @@
       data-layout="--grid"
       data-gap="--2"
     >
-      <div class="hero__front__title">
+      <div
+        class="hero__front__title"
+        data-layout="--flex"
+        data-gap="--2--m3--l4"
+      >
         <span
           v-for="(letter, index) in 'Digivore'"
           :key="index"
         >{{ letter }}</span>
       </div>
-      <div class="hero__front__subtitle">
+      <div
+        class="hero__front__subtitle"
+        data-layout="--flex"
+        data-gap
+        data-flex="--wrap"
+      >
         <span
           v-for="(letter, index) in 'Frontend senior developer'"
           :key="index"
@@ -42,6 +51,10 @@ export default Vue.extend({
     background: {
       type: String,
       required: true,
+    },
+    animate: {
+      type: Boolean,
+      default: true,
     },
   },
 });

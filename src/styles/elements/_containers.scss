@@ -1,11 +1,5 @@
 .wrap {
   position: relative;
-  @include --spe(padded) {
-    padding: 1rem;
-    @include --mq(m) {
-      padding: 2rem;
-    }
-  }
   @include --spe(max-height) {
     min-height: calc(100vh - 220px);
   }
@@ -27,6 +21,17 @@
       }
     }
     color: var(--clr-background);
+  }
+  @include --spe(dark) {
+    background-color: var(--clr-dark);
+    color: var(--clr-background);
+  }
+}
+
+@include --spe(padded, $local: false) {
+  padding: 1rem;
+  @include --mq(m) {
+    padding: 2rem;
   }
 }
 

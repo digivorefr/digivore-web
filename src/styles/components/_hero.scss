@@ -1,6 +1,7 @@
 @use 'sass:math';
 
 .hero {
+  --duration: 1s;
   &__front {
     text-shadow: 0px 2px 3px rgba(black, 0.5);
 
@@ -17,31 +18,46 @@
       }
     }
     &__title {
-      font-size: 2.75rem;
+      font-size: 2rem;
       text-transform: uppercase;
-      letter-spacing: 1em;
+      letter-spacing: 0px;
       font-weight: 100;
 
+      @include --mq(600px) {
+        font-size: 2.75rem;
+      }
+
       > span {
-        animation: text-show 0.15s 1s var(--bounce) both;
+        animation: text-show calc(var(--duration) * 0.15) var(--duration) var(--bounce) both;
         @for $i from 1 through 15 {
           &:nth-child(15n + #{$i}) {
-            animation-delay: 1s + (math.random(15) * 0.035s);
+            animation-delay: calc(
+              var(--duration) + (#{math.random(15)} * (var(--duration) * 0.035))
+            );
           }
         }
       }
     }
     &__subtitle {
-      font-size: 1rem;
+      --hgap: 0;
+      font-size: 0.73rem;
       text-transform: uppercase;
-      letter-spacing: 0.5em;
+      letter-spacing: 0px;
       font-weight: 300;
 
+      @include --mq(600px) {
+        font-size: 1rem;
+        --hgap: 0.5rem;
+      }
+
       > span {
-        animation: text-show 0.15s 1.75s var(--bounce) both;
+        animation: text-show calc(var(--duration) * 0.15) calc(var(--duration) * 1.75) var(--bounce)
+          both;
         @for $i from 1 through 15 {
           &:nth-child(15n + #{$i}) {
-            animation-delay: 1.75s + (math.random(15) * 0.035s);
+            animation-delay: calc(
+              (var(--duration) * 1.75) + (#{math.random(15)} * (var(--duration) * 0.035))
+            );
           }
         }
       }
@@ -60,7 +76,7 @@
       width: 50%;
       height: 100%;
       transform: none;
-      animation: hero-show 4s 3s ease-in-out forwards;
+      animation: hero-show calc(var(--duration) * 4) calc(var(--duration) * 3) ease-in-out forwards;
     }
     &:before {
       left: 0;
@@ -74,7 +90,15 @@
   }
 
   & + * {
-    animation: next-show 1s 6s var(--bounce) forwards;
+    --duration: 1s;
+    animation: next-show calc(var(--duration) * 1) calc(var(--duration) * 6) var(--bounce) forwards;
+  }
+
+  @include --spe(fast, $attribute: class) {
+    --duration: 0s;
+    & + * {
+      --duration: 0s;
+    }
   }
 }
 
@@ -103,6 +127,6 @@
 
 @keyframes next-show {
   100% {
-    margin-top: -20vh;
+    margin-top: -220px;
   }
 }
