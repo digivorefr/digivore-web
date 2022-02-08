@@ -1,7 +1,8 @@
 <template>
   <div data-layout="--grid">
     <div
-      class="wrap wrap--screen-height--with-background"
+      class="wrap"
+      data-spe="--screen-height--with-background"
       data-layout="--flex--justify-center--items-end"
     >
       <div class="image">
@@ -11,16 +12,21 @@
           width="100%"
         >
       </div>
-      <div class="wrap wrap--padded">
+      <div
+        class="wrap"
+        data-spe="--padded"
+      >
         <div
           class="container"
           data-layout="--grid--justify-center"
+          data-gap="--4"
+          data-spe="--txt-center"
         >
           <h1>not found</h1>
           <div data-layout="--flex--justify-center">
             <router-link
               :to="{name: 'Home'}"
-              class="link link--button"
+              data-bt
             >
               Go home
               <router-link />

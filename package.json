@@ -16,6 +16,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "@digivorefr/asterix-scss": "^1.0.0",
     "@types/source-map-support": "^0.5.4",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",

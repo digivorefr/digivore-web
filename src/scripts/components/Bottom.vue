@@ -1,12 +1,14 @@
 <template>
   <footer class="footer">
-    <div class="wrap wrap--padded">
+    <div
+      class="wrap"
+      data-spe="--padded"
+    >
       <div
         class="container"
-        data-layout="--flex--items-center--justify-end"
-        data-gap="2"
+        data-spe="--txt-center"
       >
-        Digivore 2022 - All right reserved
+        Digivore {{ currentYear }} - All rights reserved
       </div>
     </div>
   </footer>
@@ -19,6 +21,9 @@ export default Vue.extend({
   data() {
     return {
     };
+  },
+  computed: {
+    currentYear: (): string => `${new Date().getFullYear()}`,
   },
 });
 </script>

@@ -1,18 +1,12 @@
 .wrap {
   position: relative;
-  @include specify(padded) {
-    padding: 1rem;
-    @include resp(m) {
-      padding: 2rem;
-    }
-  }
-  @include specify(max-height) {
+  @include --spe(max-height) {
     min-height: calc(100vh - 220px);
   }
-  @include specify(screen-height) {
-    min-height: calc(100vh - var(--navbar-height-desktop));
+  @include --spe(screen-height) {
+    min-height: 100vh;
   }
-  @include specify(with-background) {
+  @include --spe(with-background) {
     > .image {
       position: absolute;
       z-index: -1;
@@ -27,22 +21,17 @@
       }
     }
     color: var(--clr-background);
+  }
+  @include --spe(dark) {
+    background-color: var(--clr-dark);
+    color: var(--clr-background);
+  }
+}
 
-    h1 {
-      font-size: 4rem;
-      @include resp(s) {
-        font-size: 6rem;
-      }
-      @include resp(l) {
-        font-size: 12rem;
-      }
-      font-weight: 100;
-      text-transform: lowercase;
-      padding: 0 0 4vh 0;
-      // text-shadow: 0px 4px 6px rgba(black, 0.5);
-      // transform-origin: top center;
-      animation: fade 600ms 500ms cubic-bezier(0.475, 0.885, 0.32, 1.275) backwards;
-    }
+@include --spe(padded, $local: false) {
+  padding: 1rem;
+  @include --mq(m) {
+    padding: 2rem;
   }
 }
 
@@ -52,6 +41,10 @@
   padding: 0 2rem;
   margin-left: auto;
   margin-right: auto;
+
+  @include --spe(small) {
+    max-width: 680px;
+  }
 }
 
 @keyframes fade {

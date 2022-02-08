@@ -22,22 +22,9 @@ a {
   justify-content: center;
   flex: 1 1 auto;
 
-  @include resp(m) {
+  @include --mq(m) {
     justify-content: flex-start;
     flex: none;
-  }
-
-  @include specify(button) {
-    font-size: 0.9rem;
-    line-height: 1;
-    padding: 0.5rem 1.5rem;
-    border-radius: 36px;
-    background-color: var(--clr-text);
-    color: var(--clr-background);
-
-    &:hover {
-      background-color: var(--clr-secondary);
-    }
   }
 }
 
@@ -48,15 +35,15 @@ a {
   height: 16px;
   background-color: var(--clr-background);
 
-  @include specify(linkedin) {
+  @include --spe(linkedin) {
     margin-bottom: 2px;
     height: 14px;
     mask: url(images/icons/linkedin.svg) no-repeat center / contain;
   }
-  @include specify(download) {
+  @include --spe(download) {
     mask: url(images/icons/download.svg) no-repeat center / contain;
   }
-  @include specify(github) {
+  @include --spe(github) {
     mask: url(images/icons/github.svg) no-repeat center / contain;
   }
 }
