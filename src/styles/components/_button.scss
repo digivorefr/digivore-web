@@ -23,6 +23,7 @@
   &:hover {
     transition-duration: var(--transition-on);
     transform: translateY(-2px);
+    color: var(--clr-background);
 
     box-shadow: 1px 3px 0px 0px rgba(var(--bg2), 0.6), 1px 3px 0px 0px rgba(black, 1),
       0px 1px 1px 0px rgba(black, 0.1) inset, 0px -1px 2px 0px rgba(white, 0.2) inset,
