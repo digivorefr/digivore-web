@@ -26,7 +26,7 @@
           data-col="--s2"
           data-spe="--txt-center"
         >
-          I'm currently looking for new opportunities
+          I'm currently working on an amazing project
         </div>
       </div>
     </div>
@@ -113,6 +113,26 @@
               class="resume"
               data-spe="--txt-center--mtxt-left"
             >
+              <li class="resume__item">
+                <div class="resume__item__header">
+                  since 2022
+                  <span class="dot" />
+                  Interstellar Lab
+                  <span class="dot" />
+                  Paris
+                </div>
+                <h3 class="resume__item__title">
+                  Frontend Developer
+                </h3>
+                <p class="resume__item__sumup">
+                  Building frontend app for sustainable food system on earth and space
+                </p>
+                <ul class="resume__item__tasks">
+                  <li>React frontend developement, with Redux, GraphQL and Sass</li>
+                  <li>Data visualization with Recharts and custom svg generation</li>
+                  <li>Design system implementation with Storybook</li>
+                </ul>
+              </li>
               <li class="resume__item">
                 <div class="resume__item__header">
                   2021 > 2022
