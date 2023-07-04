@@ -3,12 +3,17 @@ version: "3.6"
 services:
   frontend:
     container_name: ${PROJECT_NAME}
-    image: openizr/node:2.0.1-dev
+    build:
+      context: ./_docker
+      args:
+        - ARCHITECTURE=${ARCHITECTURE}
+        - BUILD_PLATFORM=${BUILD_PLATFORM}
+        - DOCKER_IMAGE=${DOCKER_IMAGE}
     env_file:
-      - .env
+      - ./.env
     ports:
-      - "${PORT}:${PORT}"
-    command: sh -c "yarn && yarn run dev"
+      - "${FE_HOST}:${FE_PORT}:${FE_PORT}"
+    command: sh -c "tail -f /dev/null"
     volumes:
       - ./:/var/www/html
     restart: unless-stopped

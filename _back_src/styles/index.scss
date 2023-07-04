@@ -1,0 +1,89 @@
+@use 'sass:color';
+
+@import '@digivorefr/asterix-scss';
+
+:root {
+  @import 'variables';
+  @include asterix();
+  /* Css variables */
+
+  @include --set-css-variables(
+    (
+      clr: --var(colors),
+      ff: --var(font-families),
+      gap: --var(gaps),
+    )
+  );
+
+  /* Custom css variables */
+  --transition: all 125ms ease-in-out;
+  --transition-on: 75ms;
+  --navbar-height-desktop: 76px;
+  --bounce: cubic-bezier(0.2, 0, 0.355, 1);
+
+  @import './placeholders';
+
+  body {
+    /* Common design. */
+    font-family: var(--ff-main);
+    font-size: 16px;
+    line-height: 1.1;
+    color: var(--clr-text);
+
+    margin: 0;
+    scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
+
+    background: var(--clr-background);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  * {
+    @include --spe(width50, $responsively: true) {
+      width: 50%;
+    }
+    @include --spe(width100, $responsively: true) {
+      width: 100%;
+    }
+    @include --spe(txt-center, $responsively: true) {
+      text-align: center;
+    }
+    @include --spe(txt-left, $responsively: true) {
+      text-align: left;
+    }
+    @include --spe(txt-right, $responsively: true) {
+      text-align: right;
+    }
+  }
+
+  .layout {
+    /* Global layout */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    > * {
+      flex: none;
+    }
+    .page {
+      flex: 1 1 auto;
+    }
+
+    header.header {
+      z-index: 30;
+    }
+
+    .page {
+      z-index: 10;
+    }
+
+    footer.footer {
+      z-index: 20;
+    }
+  }
+
+  @import './elements';
+  @import './components';
+  @import './pages';
+}
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;700;900&display=swap');
