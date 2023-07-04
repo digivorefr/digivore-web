@@ -87,9 +87,10 @@ function App() {
                   <h3>Back-End Development</h3>
                   <ul>
                     <li>Node</li>
-                    <li>MySQL</li>
                     <li>PHP</li>
+                    <li>GraphQL</li>
                     <li>mongodb</li>
+                    <li>MySQL</li>
                   </ul>
                 </li>
                 <li>
@@ -98,8 +99,9 @@ function App() {
                     <li>Git</li>
                     <li>Docker</li>
                     <li>Jest</li>
-                    <li>Webpack</li>
+                    <li>Vite</li>
                     <li>Postman</li>
+                    <li>Storybook</li>
                     <li>Linux</li>
                   </ul>
                 </li>
