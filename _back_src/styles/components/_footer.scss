@@ -1,0 +1,9 @@
+footer.footer {
+  font-size: 0.85rem;
+  background-image: linear-gradient(
+    -20deg,
+    rgba(var(--clr-primary-rgb), 1),
+    rgba(var(--clr-secondary-rgb), 1)
+  );
+  color: var(--clr-background);
+}

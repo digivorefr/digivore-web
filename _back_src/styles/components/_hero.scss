@@ -1,0 +1,132 @@
+@use 'sass:math';
+
+.hero {
+  --duration: 1s;
+  &__front {
+    text-shadow: 0px 2px 3px rgba(black, 0.5);
+
+    &__title,
+    &__subtitle {
+      @include --extends(
+        (
+          data-layout: --flex,
+        )
+      );
+      > span {
+        position: relative;
+        display: block;
+      }
+    }
+    &__title {
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0px;
+      font-weight: 100;
+
+      @include --mq(600px) {
+        font-size: 2.75rem;
+      }
+
+      > span {
+        animation: text-show calc(var(--duration) * 0.15) var(--duration) var(--bounce) both;
+        @for $i from 1 through 15 {
+          &:nth-child(15n + #{$i}) {
+            animation-delay: calc(
+              var(--duration) + (#{math.random(15)} * (var(--duration) * 0.035))
+            );
+          }
+        }
+      }
+    }
+    &__subtitle {
+      --hgap: 0;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0px;
+      font-weight: 300;
+
+      @include --mq(600px) {
+        font-size: 1rem;
+        --hgap: 0.5rem;
+      }
+
+      > span {
+        animation: text-show calc(var(--duration) * 0.15) calc(var(--duration) * 1.75) var(--bounce)
+          both;
+        @for $i from 1 through 15 {
+          &:nth-child(15n + #{$i}) {
+            animation-delay: calc(
+              (var(--duration) * 1.75) + (#{math.random(15)} * (var(--duration) * 0.035))
+            );
+          }
+        }
+      }
+    }
+  }
+
+  &__back {
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: rgba(var(--clr-text-rgb), 0.925);
+      backdrop-filter: blur(20px);
+      top: 0;
+      width: 50%;
+      height: 100%;
+      transform: none;
+      animation: hero-show calc(var(--duration) * 4) calc(var(--duration) * 3) ease-in-out forwards;
+    }
+    &:before {
+      left: 0;
+      transform-origin: left top;
+    }
+
+    &:after {
+      right: 0;
+      transform-origin: right bottom;
+    }
+  }
+
+  & + * {
+    --duration: 1s;
+    animation: next-show calc(var(--duration) * 1) calc(var(--duration) * 6) var(--bounce) forwards;
+  }
+
+  @include --spe(fast, $attribute: class) {
+    --duration: 0s;
+    & + * {
+      --duration: 0s;
+    }
+  }
+}
+
+@keyframes hero-show {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.5) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.5) scaleX(0);
+  }
+}
+
+@keyframes text-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes next-show {
+  100% {
+    margin-top: -220px;
+  }
+}

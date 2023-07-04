@@ -1,0 +1,41 @@
+[data-bt] {
+  @extend .link;
+  @extend .tile;
+  --display: flex;
+  --alpha: 1;
+
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0.5rem 1.5rem;
+  font-weight: 400;
+
+  box-shadow: 0px 0px 0px 0px rgba(var(--bg2), 0.6), 0px 0px 0px 0px rgba(black, 1),
+    0px 1px 1px 0px rgba(white, 0.1) inset, 0px -1px 2px 0px rgba(black, 0.3) inset,
+    0px 4px 15px rgba(black, 0.15);
+
+  transition: var(--transition);
+
+  &,
+  &:visited {
+    color: var(--clr-background);
+  }
+
+  &:hover {
+    transition-duration: var(--transition-on);
+    transform: translateY(-2px);
+    color: var(--clr-background);
+
+    box-shadow: 1px 3px 0px 0px rgba(var(--bg2), 0.6), 1px 3px 0px 0px rgba(black, 1),
+      0px 1px 1px 0px rgba(black, 0.1) inset, 0px -1px 2px 0px rgba(white, 0.2) inset,
+      0px 4px 15px rgba(black, 0.35);
+  }
+
+  @include --spe(primary, $attribute: data-bt) {
+    --bg1: var(--clr-primary-1-rgb);
+    --bg2: var(--clr-primary-rgb);
+  }
+  @include --spe(secondary, $attribute: data-bt) {
+    --bg1: var(--clr-secondary-1-rgb);
+    --bg2: var(--clr-secondary-rgb);
+  }
+}

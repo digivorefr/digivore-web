@@ -1,38 +1,36 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "baseUrl": "./src/",
-    "allowJs": true,
-    "alwaysStrict": true,
-    "jsx": "react",
-    "newLine": "LF",
-    "strict": true,
-    "strictNullChecks": true,
-    "target": "es6",
+    "baseUrl": "./src",
+    "target": "ESNext",
     "lib": [
-      "es6",
       "dom",
       "dom.iterable",
-      "scripthost",
-      "es7"
+      "ESNext"
     ],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "useDefineForClassFields": true,
+    "types": [
+      "vite/client"
+    ]
   },
   "include": [
-    "./src/**/*"
+    "./src",
   ],
   "exclude": [
-    "./src/**/*.js"
+    "node_modules",
+    "public",
+    "_back_src"
   ]
 }
