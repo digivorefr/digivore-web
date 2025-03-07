@@ -4,8 +4,13 @@ import { cn } from "@/lib/utils";
 import { motion, Variants } from "motion/react";
 import { PropsWithChildren } from "react";
 
+type CustomVariantProps = {
+  delay?: number;
+};
+
 type Props = PropsWithChildren<{
   className?: string;
+  custom?: CustomVariantProps;
 }>;
 
 
@@ -16,17 +21,17 @@ const irisVariants: Variants = {
     y: 2,
     filter: 'blur(16px) saturate(0)',
   },
-  animate: {
+  animate: (custom: CustomVariantProps) => ({
     opacity: 1,
     scale: 1,
     y: 0,
     filter: 'blur(0px) saturate(1)',
     transition: {
-      delay: 2.4,
+      delay: custom?.delay ?? 0,
       duration: 0.7,
       ease: 'easeOut',
     }
-  },
+  }),
   whileHover: {
     opacity: 1,
     scale: 1.05,
@@ -40,7 +45,7 @@ const irisVariants: Variants = {
   },
 };
 
-export default function Iris({ children, className }: Props) {
+export default function Iris({ children, className, custom }: Props) {
   const mergedClassName = cn(
     "relative rounded-full shadow-neumorphic mx-auto mt-24 overflow-hidden flex items-center justify-center",
     className
@@ -54,6 +59,7 @@ export default function Iris({ children, className }: Props) {
     animate="animate"
     whileHover="whileHover"
     exit="exit"
+    custom={custom}
   >
     {children}
   </motion.div>

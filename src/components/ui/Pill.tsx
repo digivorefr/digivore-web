@@ -18,22 +18,22 @@ type Props = {
 const pillVariants: Variants = {
   initial: {
     opacity: 0,
+    y: 6,
     filter: 'blur(4px)',
   },
   animate: (custom: CustomVariantProps) => ({
     opacity: 1,
     filter: 'blur(0px)',
+    y: 0,
     transition: {
       delay: custom?.delay ?? 0,
       ease: 'easeOut',
     }
   }),
-  whileHover: {
-    opacity: 1,
-  },
   exit: {
     filter: 'blur(4px)',
     opacity: 0,
+    y: -6,
   },
 }
 
@@ -54,7 +54,6 @@ export default function Pill({
       variants={pillVariants}
       initial={!isOrchestrated ? 'initial' : undefined}
       animate={!isOrchestrated ? 'animate' : undefined}
-      whileHover={!isOrchestrated ? 'whileHover' : undefined}
       exit={!isOrchestrated ? 'exit' : undefined}
       custom={custom}
     >
