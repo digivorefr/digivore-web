@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-nunito-sans), sans-serif;
+
+  --color-background-base: var(--color-stone-950);
+  --color-background-darken: var(--color-black);
+  --color-background-lighten: var(--color-stone-900);
+  --color-foreground: var(--color-stone-300);
+  --color-accent: var(--color-green-500);
+}
+
+
+body {
+  @apply bg-background-base text-foreground font-display;
+}
