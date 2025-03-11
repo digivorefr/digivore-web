@@ -21,13 +21,23 @@ const pillVariants: Variants = {
     y: 6,
     filter: 'blur(4px)',
   },
-  animate: (custom: CustomVariantProps) => ({
+  whileInView: (custom: CustomVariantProps) => ({
     opacity: 1,
     filter: 'blur(0px)',
     y: 0,
     transition: {
-      delay: custom?.delay ?? 0,
-      ease: 'easeOut',
+      opacity: {
+        delay: custom?.delay ?? 0,
+        ease: 'easeOut',
+      },
+      filter: {
+        delay: custom?.delay ?? 0,
+        ease: 'easeOut',
+      },
+      y: {
+        delay: custom?.delay ?? 0,
+        ease: 'easeOut',
+      },
     }
   }),
   exit: {
@@ -40,24 +50,27 @@ const pillVariants: Variants = {
 export default function Pill({
   children,
   fg = 'text-foreground',
-  bg = 'bg-background-lighten',
+  bg = 'bg-transparent',
   isOrchestrated = false,
   custom
 }: Props) {
   return (
     <motion.div
       className={cn(
-        "rounded-full px-4 py-2 text-sm font-semibold select-none",
+        "flex items-center justify-center text-sm font-semibold select-none",
         fg,
         bg
       )}
       variants={pillVariants}
-      initial={!isOrchestrated ? 'initial' : undefined}
-      animate={!isOrchestrated ? 'animate' : undefined}
-      exit={!isOrchestrated ? 'exit' : undefined}
+      initial="initial"
+      animate="initial"
+      whileInView="whileInView"
+      exit="exit"
       custom={custom}
     >
-      {children}
+      <span>
+        {children}
+      </span>
     </motion.div>
   );
 }

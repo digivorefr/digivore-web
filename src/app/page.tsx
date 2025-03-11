@@ -2,38 +2,41 @@ import Iris from "@/components/effects/Iris";
 import StaggedFade from "@/components/effects/StaggedFade";
 import { TextEffect } from "@/components/effects/TextEffect";
 import Pill from "@/components/ui/Pill";
+import Portrait from "@/components/ui/Portrait";
+import Spacer from "@/components/ui/Spacer";
 import Image from "next/image";
 
-const pillDelay = 2;
+const pillDelay = 5;
 
 export default function Home() {
   return (
-    <div className="container grid gap-16 justify-center text-center">
-      <Iris custom={{delay: 1.1}}>
-        <Image
-          priority
+    <div className="relative">
+      <div className="container grid sm:flex gap-16 justify-start items-start text-left mt-24">
+        <Portrait
           src="/img/digivore.webp"
           alt="Digivore"
           width={180}
           height={180}
-          className="z-0"
+          className="flex-none mr-auto sm:mr-0 sticky top-24 shadow-neumorphic bg-background-lighten z-0"
+          delay={2.1}
         />
-      </Iris>
-      <div className="grid gap-8">
-        <h1 className="text-h1/[1.05] font-extrabold">
-          <TextEffect delay={0.2} speedReveal={0.6}>Hey, I'm a Senior</TextEffect>
-          <TextEffect className="text-accent" delay={0.95} speedReveal={0.6}>Frontend Developer</TextEffect>
-        </h1>
-        <StaggedFade className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-2">
-          <Pill custom={{delay: pillDelay + 0.95}} bg="bg-radial-[at_50%_75%] from-gray-600 to-gray-700" fg="text-gray-200" isOrchestrated>Next.js</Pill>
-          <Pill custom={{delay: pillDelay}} bg="bg-radial-[at_25%_25%] from-sky-600 to-sky-700" fg="text-blue-200" isOrchestrated>React</Pill>
-          <Pill custom={{delay: pillDelay + 0.65}} bg="bg-radial-[at_25%_25%] from-cyan-600 to-cyan-700" fg="text-cyan-200" isOrchestrated>TypeScript</Pill>
-          <Pill custom={{delay: pillDelay + 0.3}} bg="bg-radial-[at_50%_75%] from-yellow-600 to-yellow-700" fg="text-yellow-200" isOrchestrated>Motion</Pill>
-          <Pill custom={{delay: pillDelay + 0.8}} bg="bg-radial-[at_25%_25%] from-purple-600 to-purple-700" fg="text-purple-200" isOrchestrated>Tailwind</Pill>
-          <Pill custom={{delay: pillDelay + 0.5}} bg="bg-radial-[at_50%_75%] from-green-600 to-green-700" fg="text-green-200" isOrchestrated>Node.js</Pill>
-        </StaggedFade>
-        <TextEffect delay={4.2} className="text-xs font-semibold">Based in Toulouse, France</TextEffect>
+        <div className="flex-auto grid gap-8 pt-5 bg-background-base z-10">
+          <h1 className="text-h1/[1.05] font-extrabold">
+            <TextEffect delay={0.2} speedReveal={0.6}>Hey, I'm a Senior</TextEffect>
+            <TextEffect className="text-accent" delay={0.95} speedReveal={0.6}>Frontend Developer</TextEffect>
+          </h1>
+          <TextEffect delay={3.2} className="text-sm font-bold px-1">Based in Toulouse, France</TextEffect>
+          <StaggedFade className="flex flex-wrap justify-start items-center gap-6">
+            <Pill custom={{ delay: pillDelay + 0.95 }} isOrchestrated>Team player</Pill>
+            <Pill custom={{ delay: pillDelay + 0.3 }} isOrchestrated>Creative</Pill>
+            <Pill custom={{ delay: pillDelay }} isOrchestrated>Autonomous</Pill>
+            <Pill custom={{ delay: pillDelay + 0.65 }} isOrchestrated>Dedicated</Pill>
+            <Pill custom={{ delay: pillDelay + 0.8 }} isOrchestrated>Curious</Pill>
+            <Pill custom={{ delay: pillDelay + 0.5 }} isOrchestrated>Fast learner</Pill>
+          </StaggedFade>
+        </div>
       </div>
+      <Spacer />
     </div>
   );
 }

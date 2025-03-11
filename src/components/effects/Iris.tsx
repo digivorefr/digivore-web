@@ -17,15 +17,13 @@ type Props = PropsWithChildren<{
 const irisVariants: Variants = {
   initial: {
     opacity: 0,
-    scale: 0.98,
-    y: 2,
-    filter: 'blur(16px) saturate(0)',
+    scale: 1.02,
+    filter: 'saturate(0)',
   },
-  animate: (custom: CustomVariantProps) => ({
+  whileInView: (custom: CustomVariantProps) => ({
     opacity: 1,
     scale: 1,
-    y: 0,
-    filter: 'blur(0px) saturate(1)',
+    filter: 'saturate(1)',
     transition: {
       delay: custom?.delay ?? 0,
       duration: 0.7,
@@ -35,33 +33,33 @@ const irisVariants: Variants = {
   whileHover: {
     opacity: 1,
     scale: 1.05,
-    filter: 'blur(0px) saturate(1)',
+    filter: 'saturate(1)',
   },
   exit: {
     opacity: 0,
     scale: 0.95,
-    y: 0,
-    filter: 'blur(16px) saturate(0)',
+    filter: 'saturate(0)',
   },
 };
 
 export default function Iris({ children, className, custom }: Props) {
   const mergedClassName = cn(
-    "relative rounded-full shadow-neumorphic mx-auto mt-24 overflow-hidden flex items-center justify-center",
+    "relative rounded-full shadow-neumorphic overflow-hidden flex items-center justify-center",
     className
   );
 
- return (
-  <motion.div
-    className={mergedClassName}
-    variants={irisVariants}
-    initial="initial"
-    animate="animate"
-    whileHover="whileHover"
-    exit="exit"
-    custom={custom}
-  >
-    {children}
-  </motion.div>
- )
+  return (
+    <motion.div
+      className={mergedClassName}
+      variants={irisVariants}
+      initial="initial"
+      animate="initial"
+      whileInView="whileInView"
+      whileHover="whileHover"
+      exit="exit"
+      custom={custom}
+    >
+      {children}
+    </motion.div>
+  )
 }

@@ -17,16 +17,13 @@ const variants: Variants = {
   initial: {
     opacity: 0,
   },
-  animate: (custom: CustomVariantProps) => ({
+  whileInView: (custom: CustomVariantProps) => ({
     opacity: 1,
     transition: {
       when: custom?.delay ? undefined : 'beforeChildren',
       delay: custom?.delay ?? undefined,
     }
   }),
-  whileHover: {
-    opacity: 1,
-  },
   exit: {
     opacity: 0,
   },
@@ -37,8 +34,7 @@ export default function StaggedFade({ children, className, custom }: Props) {
     <motion.div
       variants={variants}
       initial="initial"
-      animate="animate"
-      whileHover="whileHover"
+      animate="initial"
       whileInView="whileInView"
       exit="exit"
       className={cn(className)}

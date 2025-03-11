@@ -43,14 +43,12 @@ const irisVariants = {
     initial: {
         opacity: 0,
         scale: 0.98,
-        y: 2,
-        filter: 'blur(16px) saturate(0)'
+        filter: 'saturate(0)'
     },
     animate: (custom)=>({
             opacity: 1,
             scale: 1,
-            y: 0,
-            filter: 'blur(0px) saturate(1)',
+            filter: 'saturate(1)',
             transition: {
                 delay: custom?.delay ?? 0,
                 duration: 0.7,
@@ -60,17 +58,16 @@ const irisVariants = {
     whileHover: {
         opacity: 1,
         scale: 1.05,
-        filter: 'blur(0px) saturate(1)'
+        filter: 'saturate(1)'
     },
     exit: {
         opacity: 0,
         scale: 0.95,
-        y: 0,
-        filter: 'blur(16px) saturate(0)'
+        filter: 'saturate(0)'
     }
 };
 function Iris({ children, className, custom }) {
-    const mergedClassName = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("relative rounded-full shadow-neumorphic mx-auto mt-24 overflow-hidden flex items-center justify-center", className);
+    const mergedClassName = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("relative rounded-full shadow-neumorphic overflow-hidden flex items-center justify-center", className);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$motion$2f$dist$2f$es$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
         className: mergedClassName,
         variants: irisVariants,
@@ -82,8 +79,8 @@ function Iris({ children, className, custom }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/effects/Iris.tsx",
-        lineNumber: 55,
-        columnNumber: 3
+        lineNumber: 52,
+        columnNumber: 5
     }, this);
 }
 }}),

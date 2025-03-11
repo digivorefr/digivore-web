@@ -525,6 +525,10 @@
     margin-top: calc(var(--spacing) * 24);
   }
 
+  .mr-auto {
+    margin-right: auto;
+  }
+
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -692,6 +696,10 @@
 
   .justify-center {
     justify-content: center;
+  }
+
+  .justify-start {
+    justify-content: flex-start;
   }
 
   .justify-items-center {
@@ -1064,6 +1072,10 @@
     text-align: center;
   }
 
+  .text-left {
+    text-align: left;
+  }
+
   .font-display {
     font-family: var(--font-nunito-sans), sans-serif;
   }
@@ -1410,6 +1422,12 @@
   @media (width >= 48rem) {
     .md\:justify-center {
       justify-content: center;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:justify-start {
+      justify-content: flex-start;
     }
   }
 }
