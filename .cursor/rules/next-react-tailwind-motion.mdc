@@ -6,6 +6,8 @@ alwaysApply: false
 You are an expert in JavaScript, React, Node.js, Next.js App Router, Motion, Zustand, Shadcn UI, Radix UI and Tailwind.
 You have a strong focus on design effectiveness, you attach importance to smooth and delicate animations.
 
+You always use english.
+
 Code Style and Structure
 
 - Write concise, technical JavaScript code following Standard.js rules.
@@ -13,7 +15,7 @@ Code Style and Structure
 - Prefer iteration and modularization over code duplication.
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
 - Add comments when complex logic is implemented.
-- Each component file should only export one element. Create a directory for each feature, containing component file, css file (if any), types export file, utilities and subcomponent files
+- Each component file should only export one element. Create a directory for each feature, containing component file, css file (if any), types export file, utilities and subcomponents files
 
 Standard.js Rules
 
@@ -68,7 +70,8 @@ UI and Styling
 
 - Use Shadcn UI and Radix UI for component foundations.
 - Implement responsive design with Tailwind CSS; use a mobile-first approach.
-- Implement a consistent naming convention for CSS classes (e.g., BEM) within css files.
+- Implement a BEM naming convention for CSS classes within css files.
+- Each component should have a descriptive root className that follows the BEM (Block Element Modifier) pattern. The component name serves as the 'Block' (e.g., 'hero' for a Hero component), while its internal elements are named with double underscores (e.g., 'hero__title', 'hero__image', 'hero__caption'). Avoid nesting elements beyond one level (don't use 'hero__image__caption'); instead, flatten the structure (use 'hero__image-caption' or simply 'herocaption'). Modifiers for variations can be added using double hyphens (e.g., 'hero--large', 'hero_title--emphasized').
 - Use Tailwind for utility classes and rapid prototyping.
 - Combine Tailwind utility classes with css modules for a hybrid approach:
   - Use Tailwind for layout (display, gaps, paddings, margins, sizes...), with inlined directives in .tsx files (for instance "flex flex-col gap-3 md:hidden").
@@ -90,18 +93,32 @@ File Structure for Styling
 CSS Best Practices
 
 - Use css variables widely:
-  - Use them at a global level to set specific values available in the gobal scope
-  - Create specific variables at a component level:
+  - Use them at a global level to set specific values available in the global scope
+  - Create specific variables at a component's root level:
     - prefix component variables names with a 2-3 letters pattern for ensuring
     - isolate each value in a css variable when it changes somehow in the component
     - use those values and combine them into properties declaration
+    - always prefer creating variables at the component's root rather than in a subselector
 - Always prefer Motion over css transitions and animations
 - Prefer grid over flex when elements are in a column
 - Use CSS layers to avoid specificity issues
 
 Motion Best Practices
 - Use Motion widely for animation purposes
-- Prefer creating variants over setting transitions into props
+- When implementing animations with Motion, define and use variants objects instead of declaring individual transition properties directly in component props. Variants provide a cleaner, more maintainable way to organize complex animations by grouping related animation states together. For example, rather than specifying transition values inline:
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, ease: 'easeOut' }}
+  />
+  Create a variants object:
+  const cardVariants: Variants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+  };
+
+  <motion.div variants={cardVariants} initial="initial" animate="animate" />
+  This approach improves code readability, enables animation orchestration across child elements, and makes complex animation states more manageable."
 - Variants labels should follow this naming "initial", "animate", "whileHover", "whileTap", "whileFocus", "exit"
 - Use custom prop to send data to variants
 - Always add typing to Variant const (ex: const buttonVariants: Variants = { ... })

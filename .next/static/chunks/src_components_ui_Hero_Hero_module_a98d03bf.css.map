@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///home/emmettux/digivore/digivore-web/src/components/ui/Hero/Hero.module.css"],"sourcesContent":[".hero {\n  /* Main container styles if needed */\n}\n\n.hero__imageWrapper {\n  /* Add any specific styling for the image wrapper */\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n\n.hero__textLayer {\n  --hero-overlay: rgba(0, 0, 0, 0.4);\n  background-color: var(--hero-overlay);\n  z-index: 10;\n}\n\n.hero__title {\n  --hero-title-size: clamp(3rem, 15vw, 8rem);\n  --hero-title-color: #ffffff;\n  --hero-title-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);\n\n  font-size: var(--hero-title-size);\n  color: var(--hero-title-color);\n  font-weight: bold;\n  text-shadow: var(--hero-title-shadow);\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  font-family: var(--font-mono);\n}\n"],"names":[],"mappings":"AAAA;;;AAIA;;;;;;AAOA;;;;;;AAMA","debugId":null}},
+    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, Variants } from "motion/react";
-
+import styles from "./Pill.module.css";
 type CustomVariantProps = {
   delay?: number;
 };
@@ -11,7 +11,6 @@ type Props = {
   children: React.ReactNode;
   fg?:string;
   bg?:string;
-  isOrchestrated?: boolean;
   custom?: CustomVariantProps;
 }
 
@@ -51,13 +50,13 @@ export default function Pill({
   children,
   fg = 'text-foreground',
   bg = 'bg-transparent',
-  isOrchestrated = false,
   custom
 }: Props) {
   return (
     <motion.div
       className={cn(
-        "flex items-center justify-center text-sm font-semibold select-none",
+        "flex items-center justify-center select-none",
+        styles.pill,
         fg,
         bg
       )}

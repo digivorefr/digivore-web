@@ -1,0 +1,7 @@
+.pill {
+  font-family: var(--font-dm-mono);
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}

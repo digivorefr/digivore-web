@@ -3,12 +3,13 @@
 @theme inline {
   --font-display: var(--font-nunito-sans), sans-serif;
   --font-mono: var(--font-dm-mono), monospace;
+  --font-decorative: var(--font-be-vietnam-pro), sans-serif;
 
   --color-background-base: var(--color-stone-200);
   --color-background-darken: var(--color-50);
   --color-background-lighten: var(--color-stone-50);
   --color-foreground: var(--color-stone-800);
-  --color-accent: var(--color-teal-500);
+  --color-accent: var(--color-blue-600);
 
   --text-h1: min(max(2.5rem, 4cqw), 5rem);
 }

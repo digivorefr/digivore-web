@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { DM_Mono, Nunito_Sans } from "next/font/google";
+import { Be_Vietnam_Pro, DM_Mono, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
-const dmMono = DM_Mono({ variable: "--font-dm-mono", weight: "300", subsets: ["latin"] });
+const dmMono = DM_Mono({ variable: "--font-dm-mono", weight: ["400"], subsets: ["latin"] });
+
+const beVietnamPro = Be_Vietnam_Pro({ variable: "--font-be-vietnam-pro", weight: "100", subsets: ["latin"] });
 
 const nunitoSans = Nunito_Sans({ variable: "--font-nunito-sans", subsets: ["latin"] });
 
@@ -19,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.variable} ${dmMono.variable} antialiased`}
+        className={`${nunitoSans.variable} ${dmMono.variable} ${beVietnamPro.variable} antialiased`}
       >
         {children}
       </body>

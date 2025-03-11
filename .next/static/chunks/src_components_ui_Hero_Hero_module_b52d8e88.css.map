@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/components/ui/Hero/Hero.module.css"],"sourcesContent":[".hero {\n  /* Main container styles if needed */\n  container: hero / inline-size;\n}\n\n.hero__svgMask {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 5;\n}\n\n.hero__imageContainer {\n  width: 100%;\n  height: 100%;\n  position: relative;\n}\n\n.hero__textLayer {\n  --hero-overlay: transparent;\n  background-color: var(--hero-overlay);\n  z-index: 10;\n  mix-blend-mode: difference;\n}\n\n.hero__title {\n  --hero-title-size: max(3em, 2em + 5cqi);\n  --hero-title-color: var(--color-background-base);\n\n  font-size: var(--hero-title-size);\n  color: var(--hero-title-color);\n  font-weight: 100;\n  text-transform: uppercase;\n  letter-spacing: 0.1em;\n  font-family: var(--font-be-vietnam-pro);\n}\n"],"names":[],"mappings":"AAAA;;;;AAKA;;;;;;;;;AASA;;;;;;AAMA;;;;;;;AAOA"}},
+    {"offset": {"line": 37, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

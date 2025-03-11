@@ -28,6 +28,7 @@ export type TextEffectProps = {
   speedReveal?: number;
   speedSegment?: number;
   trigger?: boolean;
+  useViewport?:boolean;
   onAnimationComplete?: () => void;
   onAnimationStart?: () => void;
   segmentWrapperClassName?: string;
@@ -177,6 +178,7 @@ const createVariantsWithTransition = (
 ): Variants => {
   if (!transition) return baseVariants;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { exit: _, ...mainTransition } = transition;
 
   return {
@@ -214,6 +216,7 @@ export function TextEffect({
   speedReveal = 1,
   speedSegment = 1,
   trigger = true,
+  useViewport = false,
   onAnimationComplete,
   onAnimationStart,
   segmentWrapperClassName,
@@ -266,7 +269,8 @@ export function TextEffect({
       {trigger && (
         <MotionTag
           initial='hidden'
-          animate='visible'
+          animate={useViewport ? 'hidden' : 'visible'}
+          whileInView={useViewport ? 'visible' : undefined}
           exit='exit'
           variants={computedVariants.container}
           className={className}

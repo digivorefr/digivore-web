@@ -24,27 +24,27 @@ type Props = PropsWithChildren<{
 }>;
 
 const containerVariants: Variants = {
-  initial: ({ width }: CustomVariantProps) => ({
-    x: 64,
-    rotateY: -90,
+  initial: () => ({
+    y: 64,
+    rotateX: -90,
     opacity: 0,
-    marginLeft: -32,
+    marginTop: -32,
   }),
   whileInView: ({ delay }: CustomVariantProps) => ({
-    x: 0,
-    rotateY: 0,
+    y: 0,
+    rotateX: 0,
     opacity: 1,
-    marginLeft: 0,
+    marginTop: 0,
     transition: {
       delay,
       type: 'spring',
       bounce: 0.15,
     },
   }),
-  exit: ({ height }: CustomVariantProps) => ({
-    x: 64,
-    rotateY: -90,
-    marginLeft: -32,
+  exit: () => ({
+    y: 64,
+    rotateX: -90,
+    marginTop: -32,
     opacity: 0,
   }),
 };
@@ -56,7 +56,7 @@ const imageVariants: Variants = {
     width,
     height,
   }),
-  whileInView: ({ width, height, delay }: CustomVariantProps) => ({
+  whileInView: ({ delay }: CustomVariantProps) => ({
     opacity: 1,
     scale: 1,
     transition: {
