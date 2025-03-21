@@ -11,17 +11,19 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   custom?: CustomVariantProps;
+  isOrchestrated?: boolean;
 }
 
 const variants: Variants = {
-  initial: {
+  hidden: {
     opacity: 0,
   },
-  whileInView: (custom: CustomVariantProps) => ({
+  visible: (custom: CustomVariantProps) => ({
     opacity: 1,
     transition: {
-      when: custom?.delay ? undefined : 'beforeChildren',
+      when: 'beforeChildren',
       delay: custom?.delay ?? undefined,
+      staggerChildren: 0.3,
     }
   }),
   exit: {
@@ -29,14 +31,13 @@ const variants: Variants = {
   },
 }
 
-export default function StaggedFade({ children, className, custom }: Props) {
+export default function StaggedFade({ children, className, custom, isOrchestrated }: Props) {
   return (
     <motion.div
       variants={variants}
-      initial="initial"
-      animate="initial"
-      whileInView="whileInView"
-      exit="exit"
+      initial={!isOrchestrated ? "hidden" : undefined}
+      animate={!isOrchestrated ? "visible" : undefined}
+      exit={!isOrchestrated ? "exit" : undefined}
       className={cn(className)}
       custom={custom}
     >{children}</motion.div>

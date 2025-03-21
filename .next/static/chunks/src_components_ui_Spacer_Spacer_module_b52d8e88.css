@@ -1,6 +1,7 @@
 /* [project]/src/components/ui/Spacer/Spacer.module.css [app-client] (css) */
 .Spacer-module__L5V60G__spacer__line {
-  background: color-mix(in srgb, var(--color-foreground) 20%, transparent);
+  background: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  border-radius: 4px;
 }
 
 /*# sourceMappingURL=src_components_ui_Spacer_Spacer_module_b52d8e88.css.map*/

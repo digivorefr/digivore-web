@@ -3,42 +3,29 @@
 import { cn } from "@/lib/utils";
 import { motion, Variants } from "motion/react";
 import styles from "./Pill.module.css";
-type CustomVariantProps = {
-  delay?: number;
-};
 
 type Props = {
   children: React.ReactNode;
   fg?:string;
   bg?:string;
-  custom?: CustomVariantProps;
+  isOrchestrated?: boolean;
+  className?: string;
 }
 
 const pillVariants: Variants = {
-  initial: {
+  hidden: {
     opacity: 0,
     y: 6,
     filter: 'blur(4px)',
   },
-  whileInView: (custom: CustomVariantProps) => ({
+  visible: {
     opacity: 1,
     filter: 'blur(0px)',
     y: 0,
     transition: {
-      opacity: {
-        delay: custom?.delay ?? 0,
-        ease: 'easeOut',
-      },
-      filter: {
-        delay: custom?.delay ?? 0,
-        ease: 'easeOut',
-      },
-      y: {
-        delay: custom?.delay ?? 0,
-        ease: 'easeOut',
-      },
+      ease: 'easeOut',
     }
-  }),
+  },
   exit: {
     filter: 'blur(4px)',
     opacity: 0,
@@ -50,7 +37,8 @@ export default function Pill({
   children,
   fg = 'text-foreground',
   bg = 'bg-transparent',
-  custom
+  isOrchestrated = false,
+  className,
 }: Props) {
   return (
     <motion.div
@@ -58,14 +46,13 @@ export default function Pill({
         "flex items-center justify-center select-none",
         styles.pill,
         fg,
-        bg
+        bg,
+        className,
       )}
       variants={pillVariants}
-      initial="initial"
-      animate="initial"
-      whileInView="whileInView"
-      exit="exit"
-      custom={custom}
+      initial={!isOrchestrated ? "hidden" : undefined}
+      animate={!isOrchestrated ? "visible" : undefined}
+      exit={!isOrchestrated ? "exit" : undefined}
     >
       <span>
         {children}

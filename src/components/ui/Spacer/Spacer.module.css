@@ -1,3 +1,4 @@
 .spacer__line {
-  background: color-mix(in srgb, var(--color-foreground) 20%, transparent);
+  background: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  border-radius: 4px;
 }

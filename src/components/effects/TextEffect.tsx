@@ -25,6 +25,7 @@ export type TextEffectProps = {
   className?: string;
   preset?: PresetType;
   delay?: number;
+  isOrchestrated?: boolean;
   speedReveal?: number;
   speedSegment?: number;
   trigger?: boolean;
@@ -213,6 +214,7 @@ export function TextEffect({
   className,
   preset = 'fade',
   delay = 0,
+  isOrchestrated = false,
   speedReveal = 1,
   speedSegment = 1,
   trigger = true,
@@ -268,10 +270,10 @@ export function TextEffect({
     <AnimatePresence mode='popLayout'>
       {trigger && (
         <MotionTag
-          initial='hidden'
-          animate={useViewport ? 'hidden' : 'visible'}
-          whileInView={useViewport ? 'visible' : undefined}
-          exit='exit'
+          initial={!isOrchestrated ? 'hidden' : undefined}
+          animate={!isOrchestrated ? (useViewport ? 'hidden' : 'visible') : undefined}
+          whileInView={!isOrchestrated && useViewport ? 'visible' : undefined}
+          exit={!isOrchestrated ? 'hidden' : undefined}
           variants={computedVariants.container}
           className={className}
           onAnimationComplete={onAnimationComplete}

@@ -1,7 +1,7 @@
 ---
-description: Global rulesset for next + tailwind + motion projects
-globs: *.tsx, *.ts, *.css, *.scss
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 You are an expert in JavaScript, React, Node.js, Next.js App Router, Motion, Zustand, Shadcn UI, Radix UI and Tailwind.
 You have a strong focus on design effectiveness, you attach importance to smooth and delicate animations.

@@ -31,15 +31,15 @@
   font-size: var(--hero-title-size);
   color: var(--hero-title-color);
   font-weight: 100;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  font-family: var(--font-be-vietnam-pro);
+  text-transform: lowercase;
+  letter-spacing: -.5cqi;
+  font-family: var(--font-space-mono);
 }
 
 
 /* [project]/src/components/ui/Pill/Pill.module.css [app-client] (css) */
 .Pill-module__df9fkq__pill {
-  font-family: var(--font-dm-mono);
+  font-family: var(--font-space-mono);
   font-weight: 400;
   font-size: .75rem;
   letter-spacing: -.035em;
@@ -49,7 +49,8 @@
 
 /* [project]/src/components/ui/Spacer/Spacer.module.css [app-client] (css) */
 .Spacer-module__L5V60G__spacer__line {
-  background: color-mix(in srgb, var(--color-foreground) 20%, transparent);
+  background: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  border-radius: 4px;
 }
 
 

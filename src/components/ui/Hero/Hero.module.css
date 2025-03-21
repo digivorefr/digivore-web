@@ -32,7 +32,7 @@
   font-size: var(--hero-title-size);
   color: var(--hero-title-color);
   font-weight: 100;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-family: var(--font-be-vietnam-pro);
+  text-transform: lowercase;
+  letter-spacing: -0.5cqi;
+  font-family: var(--font-space-mono);
 }

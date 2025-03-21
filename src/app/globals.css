@@ -4,6 +4,7 @@
   --font-display: var(--font-nunito-sans), sans-serif;
   --font-mono: var(--font-dm-mono), monospace;
   --font-decorative: var(--font-be-vietnam-pro), sans-serif;
+  --font-code: var(--font-space-mono), monospace;
 
   --color-background-base: var(--color-stone-200);
   --color-background-darken: var(--color-50);

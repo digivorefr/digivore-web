@@ -1,39 +1,42 @@
 'use client';
 
 import { cn } from "@/lib/utils";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { OrchestratorVariants } from "@/components/effects/Orchestrator";
 
 import styles from "./Spacer.module.css";
-import { useMemo } from "react";
 
 type Props = {
   className?: string;
-  delay?: number;
+  isOrchestrated?: boolean;
 }
 
+const spacerVariants: OrchestratorVariants = {
+  hidden: {
+    height: "0%",
+  },
+  visible: {
+    height: "100%",
+    // transition: {
+    //   duration: 1.5,
+    // },
+  },
+  exit: {
+    height: "0%",
+  },
+};
 
-export default function Spacer({ className, delay }: Props) {
-  const spacerVariants = useMemo<Variants>(() => ({
-    hidden: {
-      height: "0%",
-    },
-    visible: {
-      height: "100%",
-      transition: {
-        duration: 3,
-        delay,
-      },
-    },
-  }), [delay]);
+export default function Spacer({ className, isOrchestrated }: Props) {
 
   return (
-    <div className={cn(styles.spacer, "h-[35dvh] my-24", className)}>
+    <div className={cn(styles.spacer, "flex justify-center items-center h-[15dvh] my-24", className)}>
       <motion.div
-        className={cn(styles.spacer__line, "w-[1px] h-full mx-auto")}
+        key="spacer-line"
+        className={cn(styles.spacer__line, "w-[2px] h-0 mx-auto")}
         variants={spacerVariants}
-        initial="hidden"
-        whileInView="visible"
-        exit="hidden"
+        initial={!isOrchestrated ? "hidden" : undefined}
+        animate={!isOrchestrated ? "visible" : undefined}
+        exit={!isOrchestrated ? "exit" : undefined}
       />
     </div>
   )
